@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Floating labels example for Bootstrap</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="floating-labels.css" rel="stylesheet">
+    <script src="js/jquery-3.4.1.js"></script>
+
+
+  </head>
+
+  <body>
+
+    <p> Sidney Perota </p>
+    <p> Piquinha das galaxicinhas </p>
+
+    <h2> Testando o JQUERY </h2>
+
+
+
+    <script>      
+      
+      //alert('versão do jQuery: ' + jQuery().jquery);      
+      //alert('sistema: ' + $().jquery); 
+
+
+      $(document).ready(function() {      
+        alert('jQuery ok');    
+      });
+
+      //$("p");
+
+
+      $(document).ready( function() { $("#changeBody").click( function() {
+
+      $("body").css( {  "background-color":"black",                  
+                        "color":"white" });  });              
+      $("#changeBody").trigger("click");     });   
+    
+    </script> 
+
+
+
+    <input type="checkbox" id="changeBody"/>  
+
+    Clique aqui para alterar a body 
+
+
+    <h2>Lista de universidades federais</h2>   
+    <span class="estado">Rio Grande do Sul </span>   
+    <ul id="lista_rs">     
+      <li class="a">UFRGS</li>     
+      <li class="b">UNIPAMPA</li>     
+      <li class="b">UFPEL</li>   
+    </ul>   
+
+    <span class="estado">Paraná</span>   
+
+    <ul id="lista_pr">     
+      <li class="b">UNILA</li>     
+      <li class="b">UFPR</li>     
+      <li class="c">UTFPR</li>   
+    </ul>
+
+
+
+    
+
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
