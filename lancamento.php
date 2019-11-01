@@ -292,6 +292,7 @@
           alert("Liberado"); 
           window.location = "listaMovimento.php";  
           
+          
         } );
 
 

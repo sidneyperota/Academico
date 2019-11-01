@@ -69,7 +69,7 @@
           include 'Funcoes.php';
           
           session_start(); 
-          $_SESSION['dataCaixa'] = ultimoCaixa(); 
+          $_SESSION['dataCaixa'] = ultimoCaixa(); s
 
           if ( $_SESSION['dataCaixa'] == null ) {
             echo "<script>";  
