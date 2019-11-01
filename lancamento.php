@@ -103,12 +103,40 @@
           ?>
 
 
+            <!-- Modal -->
+            <div class="modal fade" id="liberarCaixaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel1">Liberação do Caixa</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  Confirma Liberação do Caixa?
+                </div>
+                <div class="modal-footer">
+                  <button id="btnLiberarCaixa" type="button" class="btn btn-primary" data-dismiss="modal">Confirmar</
+                  button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cancelar </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
           <form class="card p-2" action="lancamento.php" method="post">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Senha Administrador">
               <div class="input-group-append">
-                <button type="submit" class="btn btn-secondary">
-                Liberar Caixa</button>
+
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#liberarCaixaModal">
+                Liberar Caixa
+              </button>
+
               </div>
             </div>
           </form>
@@ -177,6 +205,7 @@
             </div>
              -->
 
+
             <div class="mb-3">
               <label for="valor">Valor</label>
               <input type="text" class="form-control" id="valor" placeholder="Valor" name="valor" onKeyPress="return(moeda(this,'.',',',event))">
@@ -235,29 +264,38 @@
                
 
         </div>
+        
       </div>
 
 
-<div class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 
+      <script> 
+      // keyboard nao fecha com a tecla esc
+      // $('#exampleModal').modal({backdrop:'static', keyboard:false }); 
+
+
+      //$('#exampleModal').modal('show');   
+      // Posso utilzar o hide ou toggle
+
+      // Tem tambem o hidden e o show ou shown ( Estiver fechado e se for aberto e se estiver aberto )
       
+      /**
+      $('#exampleModal').on('hidden.bs.modal', function (e) {
+          // Aqui ocorre ao fechar o modal
+          ///alert("FECHOU-SE!");    
+      //}); 
+      */
+
+
+      $('#btnLiberarCaixa').click( 
+        function() {
+          alert("Liberado"); 
+          window.location = "listaMovimento.php";  
+          
+        } );
+
+
+      </script>  
+
   </body>
 </html>

@@ -21,7 +21,7 @@
 
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      Launch demo modal
+      Liberar Caixa
     </button>
 
     <!-- Modal -->
@@ -29,17 +29,17 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Liberação do Caixa</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            ...
+            Confirma Liberação do Caixa?
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button id="btnLiberar" type="button" class="btn btn-primary" data-dismiss="modal">Liberar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cancelar </button>
           </div>
         </div>
       </div>
@@ -48,14 +48,37 @@
     <script src="js/jquery-3.4.1.js"></script> 
     <script src="js/bootstrap.min.js"></script>
 
+      <!-- Existem duas maneiras de chamar o modal
+        
+        1- Criar uma relacao do modal com o botao na propriedade data-target='#nome_do_modal'
+        
+        2- Criar um script como esse e chamar o modal com a funcao abaixo "modal"
+
+      -->  
+     
+  
+
     <script> 
-
       // keyboard nao fecha com a tecla esc
-      //$('#exampleModal').modal({backdrop:'static', keyboard:false } ); 
+      // $('#exampleModal').modal({backdrop:'static', keyboard:false } ); 
 
 
-      $('#exampleModal').modal('show');   
+      //$('#exampleModal').modal('show');   
       // Posso utilzar o hide ou toggle
+
+      // Tem tambem o hidden e o show ou shown ( Estiver fechado e se for aberto e se estiver aberto )
+      $('#exampleModal').on('hidden.bs.modal', function (e) {
+
+          // Aqui ocorre ao fechar o modal
+      }); 
+
+
+      $('#btnLiberar').click( 
+        function() {
+          alert("Liberado Com Sucesso pelo Botao!");
+        }
+      );
+
 
     </script>  
 

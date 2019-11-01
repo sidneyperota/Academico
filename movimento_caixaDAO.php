@@ -3,7 +3,6 @@
 
 		include "banco.php";	
 
-
 		function resumoCaixa( $data ) { 
 
 			$conexao = conectar();
@@ -12,12 +11,14 @@
 			return $resultado; 		
 		}
 
-
 		
 		function liberarCaixa( $data ) { 
 
 			$conexao = conectar();
-			$sql = "update caixa set status=\"L\" where data = '$data' ";
+			
+			$dataCaixa = dataSql( $_SESSION['dataCaixa'] );
+
+			$sql = "update caixa set status=\"L\" where data = '$dataCaixa' ";
 						
  			if ($conexao-> query($sql)== true ) { 
                   echo "<h3> Dados inseridos com sucesso!</h3>";  
@@ -26,7 +27,6 @@
                echo "falha envio dos dados";                    
             }
 
-                       
             mysqli_close( $conexao );
 			
 		}
