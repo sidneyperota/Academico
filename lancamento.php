@@ -74,7 +74,7 @@
         
         <?php
           session_start(); 
-          include 'Funcoes.php'; 
+          include "Funcoes.php"; 
           echo "<h2> Data do Caixa: ".data( $_SESSION['dataCaixa'] )."</h2>";
         ?>
 
@@ -133,7 +133,7 @@
               <div class="input-group-append">
 
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#liberarCaixaModal">
+              <button type="button" action="liberarCaixa.php" class="btn btn-primary" data-toggle="modal" data-target="#liberarCaixaModal">
                 Liberar Caixa
               </button>
 
@@ -267,36 +267,19 @@
         
       </div>
 
+    <script>   
+    
+      $('#btnLiberarCaixa').click(
+        function (e) {
+            window.location="liberarCaixa.php";
+      });   
+    
+    </script>  
 
 
-      <script> 
-      // keyboard nao fecha com a tecla esc
-      // $('#exampleModal').modal({backdrop:'static', keyboard:false }); 
 
-
-      //$('#exampleModal').modal('show');   
-      // Posso utilzar o hide ou toggle
-
-      // Tem tambem o hidden e o show ou shown ( Estiver fechado e se for aberto e se estiver aberto )
-      
-      /**
-      $('#exampleModal').on('hidden.bs.modal', function (e) {
-          // Aqui ocorre ao fechar o modal
-          ///alert("FECHOU-SE!");    
-      //}); 
-      */
-
-
-      $('#btnLiberarCaixa').click( 
-        function() {
-          alert("Liberado"); 
-          window.location = "listaMovimento.php";  
-          
-          
-        } );
-
-
-      </script>  
 
   </body>
 </html>
+
+

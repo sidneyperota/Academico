@@ -69,7 +69,7 @@
           include 'Funcoes.php';
           
           session_start(); 
-          $_SESSION['dataCaixa'] = ultimoCaixa(); s
+          $_SESSION['dataCaixa'] = ultimoCaixa(); 
 
           if ( $_SESSION['dataCaixa'] == null ) {
             echo "<script>";  
@@ -93,11 +93,8 @@
             <span class="badge badge-secondary badge-pill">
               
               <?php 
-
                 //session_start();
                 echo obterTotalLancamentos( $_SESSION['dataCaixa'] );  
-
-
               ?>
 
 
@@ -110,11 +107,11 @@
               exibirSaldos(); 
           ?>
 
-          <form class="card p-2" action="lancamento.php" >
+          <form class="card p-2">
             <div class="input-group">
                 <!-- <input type="text" class="form-control" placeholder="Senha Administrador"> -->
               <div class="input-group-append">
-                <button type="submit" class="btn btn-primary">Novo Lançamento</button>
+                <button type="submit" id="btnNovoLancamentoCaixa" class="btn btn-primary">Novo Lançamento </button>
               </div>
             </div>
           </form>
@@ -166,5 +163,22 @@
       </div>
   
      
+       <script>   
+    
+          $('#btnNovoLancamentoCaixa').click(
+            function (e) {
+              
+              
+              var minhaVariavel = '<% = Session["usuario"] %>';
+              alert(minhaVariavel);
+
+              
+              
+            });   
+    
+      </script>  
+
+
+
   </body>
 </html>

@@ -53,6 +53,8 @@
 
 <?php
 
+    include "Funcoes.php";
+
     session_start(); 
     //$_SESSION['usuario'] = "nenhum"; 
     $_SESSION['nome'] = "nenhum"; 
