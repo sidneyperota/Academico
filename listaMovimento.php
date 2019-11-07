@@ -14,6 +14,7 @@
 
     <!-- Custom styles for this template -->
     <link href="starter-template.css" rel="stylesheet">
+    <script src="js/jquery-3.4.1.js"></script>
   </head>
 
   <body>
@@ -29,6 +30,27 @@
           <li class="nav-item active">
             <a class="nav-link" href="listaMovimento.php">Home <span class="sr-only">(current)</span></a>
           </li>
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Caixa</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="NovoCaixa.php">Novo</a>
+              <a class="dropdown-item" href="#">
+
+
+                <button type="button" action="" class="btn btn-primary" data-toggle="modal" 
+                data-target="#retornarCaixaModal">
+                  Retornar Caixa
+                </button>
+
+
+
+              </a>
+            </div>
+          </li>
+
+                    
           <li class="nav-item">
             <a class="nav-link" href="lancamento.php">Lançamento</a>
           </li>
@@ -78,7 +100,12 @@
           }
 
           // Definir data de trabalho no Caixa
-          echo "<h2> Data do Caixa: ". data( $_SESSION['dataCaixa'] )."</h2>";  
+          if ( $_SESSION['statusCaixa'] == "C" ) { 
+            echo "<h2> Data do Caixa: ". data( $_SESSION['dataCaixa'] )."</h2>";  
+          } else
+          {
+            echo "<h2> Data do Caixa: ". data( $_SESSION['dataCaixa'] )." ( Encerrado ) </h2>";  
+          }  
           
         ?>        
 
@@ -97,7 +124,6 @@
                 echo obterTotalLancamentos( $_SESSION['dataCaixa'] );  
               ?>
 
-
             </span>
           </h4>
           
@@ -111,7 +137,7 @@
             <div class="input-group">
                 <!-- <input type="text" class="form-control" placeholder="Senha Administrador"> -->
               <div class="input-group-append">
-                <button type="submit" id="btnNovoLancamentoCaixa" class="btn btn-primary">Novo Lançamento </button>
+                 <button type="button" id="btnNovoLancamentoCaixa" class="btn btn-primary">Novo Lançamento </button>
               </div>
             </div>
           </form>
@@ -153,7 +179,6 @@
                   echo "<th scope=\"row\">".formatarMoeda( $lancamento['valor'] )."</td>";
                   echo "</tr>";
                 }  
-          
 
             ?> 
 
@@ -161,24 +186,73 @@
           </table>
         </div>
       </div>
-  
-     
-       <script>   
-    
-          $('#btnNovoLancamentoCaixa').click(
-            function (e) {
-              
-              
-              var minhaVariavel = '<% = Session["usuario"] %>';
-              alert(minhaVariavel);
 
-              
-              
-            });   
-    
+      <!-- Modal Para Retornar Caixa -->
+      <div class="modal fade" id="retornarCaixaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel1">Retornar Caixa</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Confirma retornar Caixa para lançamento?
+            </div>
+            <div class="modal-footer">
+              <button id="btnRetornarCaixa" type="button" class="btn btn-primary" data-dismiss="modal">Confirmar
+              </button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cancelar </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <?php  
+        echo "<script>"; 
+        echo " var statusCaixa = '".$_SESSION['statusCaixa']."';"; 
+        echo "</script>"; 
+      ?>
+
+
+      <script>   
+
+        $('#btnNovoLancamentoCaixa').click(
+          function (e) {
+            if ( statusCaixa == "C") { 
+               window.location="lancamento.php"; 
+            } 
+            else
+            { 
+              window.location="InserirCaixa.php";
+            }  
+        });   
+      
+      
+        $('#btnRetornarCaixa').click(
+          function (e) {
+            
+            alert("Retornado com sucesso!");
+
+            <?php echo "teste"; ?>;
+ 
+
+
+        });   
+
+
+
+
       </script>  
 
 
+      
+
+     
 
   </body>
 </html>
