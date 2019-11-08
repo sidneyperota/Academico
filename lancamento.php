@@ -268,12 +268,10 @@
       </div>
 
     <script>   
-    
       $('#btnLiberarCaixa').click(
         function (e) {
             window.location="liberarCaixa.php";
       });   
-    
     </script>  
 
 
