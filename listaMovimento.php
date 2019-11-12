@@ -43,9 +43,6 @@
                 data-target="#retornarCaixaModal">
                   Retornar Caixa
                 </button>
-
-
-
               </a>
             </div>
           </li>
@@ -82,10 +79,11 @@
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/funcoes.js"></script>
+    <script src="core.js"></script>
 
     <div class="container">
       <div class="py-1 text-left">
-        
+        <div id="id_data-caixa"> 
         <?php 
           include "movimento_caixaDAO.php";
           include 'Funcoes.php';
@@ -95,21 +93,22 @@
 
           if ( $_SESSION['dataCaixa'] == null ) {
             echo "<script>";  
-            echo "window.location=\"listaMovimento.php\";"; 
+            echo "window.location=\"listaMovimento.html\";"; 
             echo "</script>"; 
           }
 
           // Definir data de trabalho no Caixa
+          
           if ( $_SESSION['statusCaixa'] == "C" ) { 
-            echo "<h2> Data do Caixa: ". data( $_SESSION['dataCaixa'] )."</h2>";  
+            echo "<div id='id_data_caixa'> <h2>  Data do Caixa: ".data( $_SESSION['dataCaixa'] )."</h2> </div>";  
           } else
           {
-            echo "<h2> Data do Caixa: ". data( $_SESSION['dataCaixa'] )." ( Encerrado ) </h2>";  
+            echo "<div id='id_data_caixa'> <h2> Data do Caixa: ".data( $_SESSION['dataCaixa'] )." ( Encerrado ) </h2> </div>";  
           }  
           
         ?>        
+        </div>
 
-        
       </div>
 
       <div class="row">
@@ -142,6 +141,8 @@
             </div>
           </form>
         </div>
+
+
         <div class="col-md-9 order-md-1">
           </br> 
 
@@ -185,7 +186,10 @@
             </tbody>
           </table>
         </div>
+
       </div>
+
+
 
       <!-- Modal Para Retornar Caixa -->
       <div class="modal fade" id="retornarCaixaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -210,49 +214,47 @@
         </div>
       </div>
 
+    </div>
+        
+        <script src="js/jquery-3.4.1.js"> </script> 
+
+        
+        <?php  
+          echo "<script> var s_caixa=".$_SESSION['statusCaixa']."</script>";  
+        ?> 
 
 
-      <?php  
-        echo "<script>"; 
-        echo " var statusCaixa = '".$_SESSION['statusCaixa']."';"; 
-        echo "</script>"; 
-      ?>
+        <script> 
+
+           
+
+          $('#btnNovoLancamentoCaixa').click(
+            function (e) {
 
 
-      <script>   
+              if ( s_caixa == 'C') { 
+                 window.location="lancamento.php"; 
+              } 
+              else
+              { 
+                window.location="InserirCaixa.php";
+              }  
+          });   
+        
+          
+          
+          $('#btnRetornarCaixa').click( function (e) { 
 
-        $('#btnNovoLancamentoCaixa').click(
-          function (e) {
-            if ( statusCaixa == "C") { 
-               window.location="lancamento.php"; 
-            } 
-            else
-            { 
-              window.location="InserirCaixa.php";
-            }  
-        });   
-      
-      
-        $('#btnRetornarCaixa').click(
-          function (e) {
-            
-            alert("Retornado com sucesso!");
-
-            <?php echo "teste"; ?>;
- 
-
-
-        });   
-
-
-
-
-      </script>  
-
-
-      
-
-     
-
+             $.ajax({
+              method: "POST",
+              url: "teste.php",
+              data: { teste: "C" }
+            }).done(function( msg ) {
+              $('#id_data_caixa').html( msg );
+              s_caixa = "C";
+            });
+          });    
+        
+        </script>  
   </body>
 </html>

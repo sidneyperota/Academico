@@ -121,10 +121,13 @@
         $dta = ultimoCaixa();   
 
 
+
         if ( $dta != null ) { 
           
           $_SESSION['dataCaixa'] =  $dta; 
-          $_SESSION['statusCaixa'] = "L";
+          $_SESSION['statusCaixa'] = obter_status_caixa( $dta );
+
+
           echo "<script>";  
           echo "window.location=\"listaMovimento.php\";"; 
           echo "</script>";   

@@ -1,4 +1,4 @@
-function  buscar() 
+function  liberar() 
 {
 
 	$.ajax({
@@ -12,7 +12,7 @@ function  buscar()
 	    	$("#dados").html("Carregando..."); 
 	    }, 
 
-	    data: { palavra : "Sidney Teste passado na variavel Post" }, 
+	    data: { palavra : "Sidney Teste passado na variavel Post"}, 
 
 	    success: function(data) {
 		  $("#dados").html(data); 
@@ -24,7 +24,6 @@ function  buscar()
 }
 
 
-
-
-
-
+$('#liberar').click(function() { 
+	liberar();
+});

@@ -1,39 +1,64 @@
 <?php
 
 
-		include "banco.php";	
-		//include "Funcoes.php";
+	include "banco.php";	
+	//include "Funcoes.php";
 
-		function resumoCaixa( $data ) { 
+	function resumoCaixa( $data ) { 
 
-			$conexao = conectar();
-			$sql = "SELECT * FROM movimento_caixa where data = '$data' ";
-			$resultado = mysqli_query($conexao, $sql );
-			return $resultado; 		
-		}
+		$conexao = conectar();
+		$sql = "SELECT * FROM movimento_caixa where data = '$data' ";
+		$resultado = mysqli_query($conexao, $sql );
+		return $resultado; 		
+	}
 
+	
+	function liberarCaixa( $data ) { 
+
+		$conexao = conectar();
+		$dataCaixa = dataSql( $_SESSION['dataCaixa'] );
+		$sql = "update caixa set status=\"L\" where data = '$dataCaixa' ";
+					
+			if ($conexao-> query($sql)== false ) { 
+          echo "falha envio dos dados";                    
+        }
+
+        mysqli_close( $conexao );
+	}
+
+	function retornar_caixa( $data ) { 
+
+		$conexao = conectar();
+		$dataCaixa = dataSql( $_SESSION['dataCaixa'] );
+		$sql = "update caixa set status=\"C\" where data = '$dataCaixa' ";
+					
+			if ($conexao-> query($sql) == false ) { 
+          echo "falha envio dos dados";                    
+        }
+
+        mysqli_close( $conexao );
+	}
+
+	function ultimoCaixa( ) { 
+		$conexao = conectar();
+		$sql = 'SELECT max(data) as data FROM caixa';
+		$resultado = mysqli_query($conexao, $sql );
+		$lancamento = array();
+		$lancamento = mysqli_fetch_assoc($resultado);
+		return $lancamento['data'];
+	}
+
+
+	function obter_status_caixa( ) { 
+		$conexao = conectar();
 		
-		function liberarCaixa( $data ) { 
-
-			$conexao = conectar();
-			$dataCaixa = dataSql( $_SESSION['dataCaixa'] );
-			$sql = "update caixa set status=\"L\" where data = '$dataCaixa' ";
-						
- 			if ($conexao-> query($sql)== false ) { 
-              echo "falha envio dos dados";                    
-            }
-
-            mysqli_close( $conexao );
-		}
-
-		function ultimoCaixa( ) { 
-			$conexao = conectar();
-			$sql = 'SELECT max(data) as data FROM caixa';
-			$resultado = mysqli_query($conexao, $sql );
-    		$lancamento = array();
-    		$lancamento = mysqli_fetch_assoc($resultado);
-			return $lancamento['data'];
-		}
+		$dataCaixa = dataSql( $_SESSION['dataCaixa'] );
+		$sql = "SELECT status FROM caixa where data = '$dataCaixa' ";
+		$resultado = mysqli_query($conexao, $sql );
+		$lancamento = array();
+		$lancamento = mysqli_fetch_assoc($resultado);
+		return $lancamento['status'];
+	}
 
 	
 	function retornaSaldos( $data ) { 	

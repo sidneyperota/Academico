@@ -270,11 +270,10 @@
     <script>   
       $('#btnLiberarCaixa').click(
         function (e) {
-            window.location="liberarCaixa.php";
+
+          window.location="liberar_Caixa.php";
       });   
     </script>  
-
-
 
 
   </body>

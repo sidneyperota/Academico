@@ -1,15 +1,10 @@
 <?php
 
-	
 	function mostrarTexto() { 
-	
-	  return "Sidney";				
+	  return $_POST['palavra'];				
 	}	
 
-	//echo mostrarTexto(); 
-
-
+	echo mostrarTexto(); 
 
 ?> 
 
-<h1> Retornado com sucesso </h1>
