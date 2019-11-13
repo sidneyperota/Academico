@@ -3,5 +3,4 @@
 	include "Funcoes.php"; 
 	session_start(); 
 	liberarCaixa( $_POST['dataCaixa'] );
-	header("Location: listaMovimento.php");
 ?>

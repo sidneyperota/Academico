@@ -270,8 +270,17 @@
     <script>   
       $('#btnLiberarCaixa').click(
         function (e) {
+          
+          $.ajax({
+            method: "POST",
+            url: "liberar_caixa.php",
+            data: { teste: "C" }
+          }).done(function( msg ) {
+            $('#id_data_caixa').html( msg );
+            setStatusCaixa('C');
+          });
 
-          window.location="liberar_Caixa.php";
+          window.location="listaMovimento.php";
       });   
     </script>  
 

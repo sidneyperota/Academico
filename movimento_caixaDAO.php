@@ -24,6 +24,7 @@
         }
 
         mysqli_close( $conexao );
+		$_SESSION['statusCaixa'] = "L";        
 	}
 
 	function retornar_caixa( $data ) { 
@@ -37,6 +38,7 @@
         }
 
         mysqli_close( $conexao );
+        $_SESSION['statusCaixa'] = "C"; 
 	}
 
 	function ultimoCaixa( ) { 
@@ -51,7 +53,6 @@
 
 	function obter_status_caixa( ) { 
 		$conexao = conectar();
-		
 		$dataCaixa = dataSql( $_SESSION['dataCaixa'] );
 		$sql = "SELECT status FROM caixa where data = '$dataCaixa' ";
 		$resultado = mysqli_query($conexao, $sql );
@@ -203,6 +204,14 @@
 
 	    return $quantidade; 
 	}    
+
+
+	// Atualizar Dados das Variaveis JS 
+	function atualizarDadosJS() { 
+
+		echo "<script>  setStatusCaixa('".$_SESSION['status_caixa']."'')</script>"; 
+
+	}
 
 
 ?>

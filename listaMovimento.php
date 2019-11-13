@@ -15,6 +15,7 @@
     <!-- Custom styles for this template -->
     <link href="starter-template.css" rel="stylesheet">
     <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/controlador.js"></script>
   </head>
 
   <body>
@@ -180,7 +181,6 @@
                   echo "<th scope=\"row\">".formatarMoeda( $lancamento['valor'] )."</td>";
                   echo "</tr>";
                 }  
-
             ?> 
 
             </tbody>
@@ -188,7 +188,6 @@
         </div>
 
       </div>
-
 
 
       <!-- Modal Para Retornar Caixa -->
@@ -218,21 +217,13 @@
         
         <script src="js/jquery-3.4.1.js"> </script> 
 
-        
-        <?php  
-          echo "<script> var s_caixa=".$_SESSION['statusCaixa']."</script>";  
-        ?> 
-
 
         <script> 
-
-           
+          
 
           $('#btnNovoLancamentoCaixa').click(
             function (e) {
-
-
-              if ( s_caixa == 'C') { 
+              if ( getStatusCaixa() == 'C') { 
                  window.location="lancamento.php"; 
               } 
               else
@@ -242,7 +233,6 @@
           });   
         
           
-          
           $('#btnRetornarCaixa').click( function (e) { 
 
              $.ajax({
@@ -251,7 +241,6 @@
               data: { teste: "C" }
             }).done(function( msg ) {
               $('#id_data_caixa').html( msg );
-              s_caixa = "C";
             });
           });    
         

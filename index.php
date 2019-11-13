@@ -47,6 +47,8 @@
       <p class="mt-5 mb-3 text-muted text-center">&reg;Doce Aroma      |    &reg;Jolie Boutique </p>
     </form>
 
+  
+    <script> var status_caixa = "C"; </script>      
   </body>
 </html>
 
@@ -121,12 +123,10 @@
         $dta = ultimoCaixa();   
 
 
-
         if ( $dta != null ) { 
           
           $_SESSION['dataCaixa'] =  $dta; 
           $_SESSION['statusCaixa'] = obter_status_caixa( $dta );
-
 
           echo "<script>";  
           echo "window.location=\"listaMovimento.php\";"; 
