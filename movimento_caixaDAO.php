@@ -51,7 +51,7 @@
 	}
 
 
-	function obter_status_caixa( ) { 
+	function obter_status_caixa() { 
 		$conexao = conectar();
 		$dataCaixa = dataSql( $_SESSION['dataCaixa'] );
 		$sql = "SELECT status FROM caixa where data = '$dataCaixa' ";

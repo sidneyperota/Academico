@@ -16,6 +16,7 @@
     <link href="starter-template.css" rel="stylesheet">
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/controlador.js"></script>
+    <script src="listaMovimento.js"></script> 
   </head>
 
   <body>
@@ -106,8 +107,11 @@
           {
             echo "<div id='id_data_caixa'> <h2> Data do Caixa: ".data( $_SESSION['dataCaixa'] )." ( Encerrado ) </h2> </div>";  
           }  
-          
+
         ?>        
+
+
+
         </div>
 
       </div>
@@ -215,35 +219,45 @@
 
     </div>
         
-        <script src="js/jquery-3.4.1.js"> </script> 
-
-
-        <script> 
-          
-
-          $('#btnNovoLancamentoCaixa').click(
-            function (e) {
-              if ( getStatusCaixa() == 'C') { 
-                 window.location="lancamento.php"; 
-              } 
-              else
-              { 
-                window.location="InserirCaixa.php";
-              }  
-          });   
-        
-          
-          $('#btnRetornarCaixa').click( function (e) { 
-
-             $.ajax({
-              method: "POST",
-              url: "teste.php",
-              data: { teste: "C" }
-            }).done(function( msg ) {
-              $('#id_data_caixa').html( msg );
-            });
-          });    
-        
-        </script>  
+       
   </body>
 </html>
+
+
+
+<script> 
+
+         
+  $('#btnNovoLancamentoCaixa').click( function (e) {
+
+      $.ajax({
+        method: "POST",
+        url: "movimentoCaixaControle.php",
+        data: { operacao: "lancamento" }
+      }).done(function( msg ) {
+        //$('#id_data_caixa').html( msg );
+        if ( ( msg ) == "L" ) { 
+          window.location="InserirCaixa.php";  
+        } 
+        else
+        {
+          window.location="lancamento.php";
+        }  
+
+      });
+  
+  });   
+
+  
+  $('#btnRetornarCaixa').click( function (e) { 
+
+    $.ajax({
+      method: "POST",
+      url: "teste.php",
+      data: { teste: "C" }
+    }).done(function( msg ) {
+      $('#id_data_caixa').html( msg );
+    });
+  });    
+
+</script>

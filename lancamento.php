@@ -274,7 +274,7 @@
           $.ajax({
             method: "POST",
             url: "liberar_caixa.php",
-            data: { teste: "C" }
+            data: { : "C" }
           }).done(function( msg ) {
             $('#id_data_caixa').html( msg );
             setStatusCaixa('C');
