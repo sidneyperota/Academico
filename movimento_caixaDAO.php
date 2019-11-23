@@ -51,9 +51,9 @@
 	}
 
 
-	function obter_status_caixa() { 
+	function obter_status_caixa( $data ) { 
 		$conexao = conectar();
-		$dataCaixa = dataSql( $_SESSION['dataCaixa'] );
+		$dataCaixa = dataSql( $data );
 		$sql = "SELECT status FROM caixa where data = '$dataCaixa' ";
 		$resultado = mysqli_query($conexao, $sql );
 		$lancamento = array();

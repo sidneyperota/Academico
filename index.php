@@ -58,9 +58,9 @@
     include "Funcoes.php";
 
     session_start(); 
-    //$_SESSION['usuario'] = "nenhum"; 
+    $_SESSION['usuario'] = "nenhum"; 
     $_SESSION['nome'] = "nenhum"; 
-    $_SESSION['idUsuario'] = 0;
+    $_SESSION['id_usuario'] = 0;
 
     $usuarios = array ( array ( 'id' => 1, 
                                 'nome' => 'JAQUELINE', 
@@ -80,7 +80,7 @@
       $idUsuario = 0;      
       $_SESSION['usuario'] = $usuario; 
 
-      // Percorrer por Alunos
+      // Percorrer por Usuarios
       $avisoLogin = "invalido";  
 
       foreach ( $usuarios as $_usuario ) { 
@@ -95,7 +95,7 @@
           else 
           { 
             $avisoLogin = "valido";
-            $_SESSION['idUsuario'] = $_usuario['id'];
+            $_SESSION['id_usuario'] = $_usuario['id'];
             break; 
           }   
         } 

@@ -76,7 +76,13 @@
      <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    
+    <!--
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  -->
+    
+
+
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -91,21 +97,25 @@
           include 'Funcoes.php';
           
           session_start(); 
-          $_SESSION['dataCaixa'] = ultimoCaixa(); 
+          $_SESSION['dataCaixa'] = ultimoCaixa();
+          $_SESSION['statusCaixa'] = obter_status_caixa( $_SESSION['dataCaixa']);  
 
           if ( $_SESSION['dataCaixa'] == null ) {
             echo "<script>";  
-            echo "window.location=\"listaMovimento.html\";"; 
+            echo "window.location=\"NovoCaixa.php\";"; 
             echo "</script>"; 
           }
+          else
+          {  
 
-          // Definir data de trabalho no Caixa
-          
-          if ( $_SESSION['statusCaixa'] == "C" ) { 
-            echo "<div id='id_data_caixa'> <h2>  Data do Caixa: ".data( $_SESSION['dataCaixa'] )."</h2> </div>";  
-          } else
-          {
-            echo "<div id='id_data_caixa'> <h2> Data do Caixa: ".data( $_SESSION['dataCaixa'] )." ( Encerrado ) </h2> </div>";  
+            // Definir data de trabalho no Caixa
+            if ( $_SESSION['statusCaixa'] == "C" ) { 
+              echo "<div id='id_data_caixa'> <h2>  Data do Caixa: ".data( $_SESSION['dataCaixa'] )."</h2> </div>";  
+            } else
+            {
+              echo "<div id='id_data_caixa'> <h2> Data do Caixa: ".data( $_SESSION['dataCaixa'] )." ( Encerrado ) </h2> </div>";  
+            }
+
           }  
 
         ?>        
@@ -141,7 +151,7 @@
             <div class="input-group">
                 <!-- <input type="text" class="form-control" placeholder="Senha Administrador"> -->
               <div class="input-group-append">
-                 <button type="button" id="btnNovoLancamentoCaixa" class="btn btn-primary">Novo Lançamento </button>
+                 <button type="button" id="btnNovo" class="btn btn-primary">Novo Lançamento </button>
               </div>
             </div>
           </form>
@@ -152,6 +162,9 @@
           </br> 
 
           <h4 class="mb-3">Lançamentos: </h4>
+          <div id="mensagem"> Teremos a mensagem aqui </div>
+
+
 
           <table class="table table-striped">
             <thead>
@@ -217,47 +230,123 @@
         </div>
       </div>
 
-    </div>
-        
-       
-  </body>
-</html>
-
 
 
 <script> 
 
-         
-  $('#btnNovoLancamentoCaixa').click( function (e) {
-
-      $.ajax({
-        method: "POST",
-        url: "movimentoCaixaControle.php",
-        data: { operacao: "lancamento" }
-      }).done(function( msg ) {
-        //$('#id_data_caixa').html( msg );
-        if ( ( msg ) == "L" ) { 
-          window.location="InserirCaixa.php";  
-        } 
-        else
-        {
-          window.location="lancamento.php";
-        }  
-
-      });
   
+  $('#btnNovo').click( function (e) {
+
+      
+      // metodo GET simples 
+      var servico = "movimentoCaixaControle.php";
+      var dados = { operacao: "lancamento" };
+
+      $.get( servico, function(data) {
+          alert( "Metodo simples --> " + data );
+      })
+
+      // Metodo simples com parametro
+      $.get( servico, dados, function(data) {
+          alert( "Metodo simples com parametro --> " + data );
+      })
+
+
+      // Opcao mais completa para requisicao 
+      $.ajax({
+          method: "POST",
+          url: "movimentoCaixaControle.php",
+          //async : false,
+          data: { operacao: "lancamento" },
+          
+
+          //data: JSON.stringify({ login: 'admin', password: 'admin' }),
+          dataType : "html"
+        }).done(function( msg ) {
+          
+                    
+          $('#mensagem').html( msg );
+
+          if ( msg = 'S' ) {
+            alert("Positivo");
+          }
+          else
+            alert("Negativo");
+/*
+          if ( msg.nome == "sim" ) {
+            alert(msg.nome);
+            window.location="lancamento.php";
+          } 
+          else
+          if ( msg.nome == 'L' ) {
+            window.location="inserirCaixa.php";
+          } 
+          else
+            alert("Status diferente, verifique o problema com a equipe de suporte técnico.");  
+  */         
+
+
+          //$('#teste').html( msg );
+          
+        }).fail(function( msg ) {
+          //$('#teste').html( "Erro na resposta");  
+        });
+
+ 
   });   
 
   
   $('#btnRetornarCaixa').click( function (e) { 
+
+   
 
     $.ajax({
       method: "POST",
       url: "teste.php",
       data: { teste: "C" }
     }).done(function( msg ) {
-      $('#id_data_caixa').html( msg );
+      //$('#id_data_caixa').html( msg );
     });
+
+    
   });    
 
+
+
+
+
+// Opcao mais completa para requisicao com JSON 
+$.ajax({
+    method: "post",
+    url: "teste-json.php",
+    data: { operacao: "sidney" },
+    dataType : "json"
+  }).done(function( msg ) {
+    
+    console.log( msg[0].nome );          
+    
+    
+    
+      
+    //var obj = jQuery.parseJSON(msg);
+    //alert("metodo com jSon " + obj.nome);
+    
+  }).fail(function( msg ) {
+    //$('#teste').html( "Erro na resposta");  
+  });
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
+
+
+</html>
