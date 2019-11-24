@@ -133,7 +133,8 @@
               <div class="input-group-append">
 
               <!-- Button trigger modal -->
-              <button type="button" action="liberarCaixa.php" class="btn btn-primary" data-toggle="modal" data-target="#liberarCaixaModal">
+              <button type="button" action="" class="btn btn-primary" data-toggle="modal" data-target=
+              "#liberarCaixaModal">
                 Liberar Caixa
               </button>
 
@@ -205,7 +206,6 @@
             </div>
              -->
 
-
             <div class="mb-3">
               <label for="valor">Valor</label>
               <input type="text" class="form-control" id="valor" placeholder="Valor" name="valor" onKeyPress="return(moeda(this,'.',',',event))">
@@ -220,7 +220,6 @@
             <button class="btn btn-primary btn-lg btn-block" type="submit" onclick=""> Salvar </button>
 
           </form>
-
 
           <?php
 
@@ -245,7 +244,6 @@
 
                 $sql = "insert into movimento_caixa ( data, conta, operacao, historico, valor, usuario, doc ) 
                         values ( '$dataCaixa', '$conta','$operacao','$historico', $valor, $usuario, '$doc' )";
-
 
                 if ($conexao-> query($sql)== true ) { 
                   echo "<h3> Dados inseridos com sucesso!</h3>";  
@@ -274,13 +272,17 @@
           $.ajax({
             method: "POST",
             url: "liberar_caixa.php",
-            data: { : "C" }
+            data: { status: "C" },
+            dataType : "json"
           }).done(function( msg ) {
-            $('#id_data_caixa').html( msg );
-            setStatusCaixa('C');
+            
+              window.location="listaMovimento.php";
+
+            //$('#id_data_caixa').html( msg );
+            //setStatusCaixa('C');
           });
 
-          window.location="listaMovimento.php";
+          
       });   
     </script>  
 

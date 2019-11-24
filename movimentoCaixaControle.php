@@ -1,38 +1,14 @@
 <?php 
-
-		
-   include "movimento_caixaDAO.php"; 
+ 
    include "Funcoes.php";
+   include "movimento_caixaDAO.php";
 
-   $complemento = ""; 
-
+   session_start(); 
    
-   if ( isset($_POST['operacao']) ) { 
-      if ( $_POST['operacao'] == 'json-teste' ) {
-         echo json_encode($_POST);
-      } else
-      if ( $_POST['operacao'] == 'lancamento' ) {
-         
-         $ret_status = array ( 'status' => 'C' );
+   $ret_status = array ( 'status' => obter_status_caixa( $_SESSION['dataCaixa'])  );
 
-         die(json_encode( $ret_status ));
-         //obter_status_caixa( $_SESSION['dataCaixa'] );
-      } else
+   echo json_encode( $ret_status );
 
-      {
-         $GLOBALS['complemento'] = $_POST['operacao'];
-         echo ("S".$complemento);
-      }
-   }
-
-
-
-
-
-
-
-   
-    
 
    
 

@@ -162,10 +162,7 @@
           </br> 
 
           <h4 class="mb-3">Lançamentos: </h4>
-          <div id="mensagem"> Teremos a mensagem aqui </div>
-
-
-
+          
           <table class="table table-striped">
             <thead>
               <tr>
@@ -238,58 +235,23 @@
   $('#btnNovo').click( function (e) {
 
       
-      // metodo GET simples 
-      var servico = "movimentoCaixaControle.php";
-      var dados = { operacao: "lancamento" };
-
-      $.get( servico, function(data) {
-          alert( "Metodo simples --> " + data );
-      })
-
-      // Metodo simples com parametro
-      $.get( servico, dados, function(data) {
-          alert( "Metodo simples com parametro --> " + data );
-      })
-
-
-      // Opcao mais completa para requisicao 
       $.ajax({
           method: "POST",
           url: "movimentoCaixaControle.php",
-          //async : false,
           data: { operacao: "lancamento" },
-          
-
-          //data: JSON.stringify({ login: 'admin', password: 'admin' }),
-          dataType : "html"
+          dataType : "json"
         }).done(function( msg ) {
           
-                    
-          $('#mensagem').html( msg );
-
-          if ( msg = 'S' ) {
-            alert("Positivo");
-          }
-          else
-            alert("Negativo");
-/*
-          if ( msg.nome == "sim" ) {
-            alert(msg.nome);
+          if ( msg.status  == "C" ) {
             window.location="lancamento.php";
           } 
           else
-          if ( msg.nome == 'L' ) {
-            window.location="inserirCaixa.php";
-          } 
-          else
-            alert("Status diferente, verifique o problema com a equipe de suporte técnico.");  
-  */         
-
-
-          //$('#teste').html( msg );
+          {
+            window.location="NovoCaixa.php";
+          }
           
         }).fail(function( msg ) {
-          //$('#teste').html( "Erro na resposta");  
+          alert("Erro ao retornar JSON" );  
         });
 
  
@@ -297,8 +259,7 @@
 
   
   $('#btnRetornarCaixa').click( function (e) { 
-
-   
+  
 
     $.ajax({
       method: "POST",
@@ -310,40 +271,6 @@
 
     
   });    
-
-
-
-
-
-// Opcao mais completa para requisicao com JSON 
-$.ajax({
-    method: "post",
-    url: "teste-json.php",
-    data: { operacao: "sidney" },
-    dataType : "json"
-  }).done(function( msg ) {
-    
-    console.log( msg[0].nome );          
-    
-    
-    
-      
-    //var obj = jQuery.parseJSON(msg);
-    //alert("metodo com jSon " + obj.nome);
-    
-  }).fail(function( msg ) {
-    //$('#teste').html( "Erro na resposta");  
-  });
-
-
-
-
-
-
-
-
-
-
 
 
 </script>
