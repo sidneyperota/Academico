@@ -8,13 +8,13 @@
 /*
   $servidor='localhost:3306';
   $bdUsuario= 'id11028291_sidney';
-  $bdSenha='si290777';
+  $bdSenha='xxxxx';
   $bdBanco='id11028291_financeiro';
 */
 
   $bdServidor='localhost:3306';
   $bdUsuario= 'root';
-  $bdSenha='si232317';
+  $bdSenha='xxxxx';
   $bdBanco='financeiro';
 
   $conexao = mysqli_connect( $bdServidor, $bdUsuario, $bdSenha, $bdBanco );
