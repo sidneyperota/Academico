@@ -14,7 +14,7 @@
 
   $bdServidor='localhost:3306';
   $bdUsuario= 'root';
-  $bdSenha='xxxxx';
+  $bdSenha='si232317';
   $bdBanco='financeiro';
 
   $conexao = mysqli_connect( $bdServidor, $bdUsuario, $bdSenha, $bdBanco );
