@@ -57,7 +57,7 @@
 
     include "Funcoes.php";
 
-    session_start(); 
+    //session_start(); 
     $_SESSION['usuario'] = "nenhum"; 
     $_SESSION['nome'] = "nenhum"; 
     $_SESSION['id_usuario'] = 0;

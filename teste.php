@@ -7,7 +7,7 @@
 	include "movimento_caixaDAO.php";
 
 	
-	echo obter_status_caixa($_SESSION['dataCaixa']);
+	var_dump obter_status_caixa($_SESSION['dataCaixa']);
 	
 
 

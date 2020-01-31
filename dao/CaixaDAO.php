@@ -15,5 +15,16 @@
 		}
 
 
+
+		// Listar todos os caixas 
+		function listarCaixas() { 
+			$conexao = conectar(); 
+			$sql = "SELECT * FROM caixa order by data"; 
+			$resultado = mysqli_query($conexao, $sql );
+    		return $resultado; 
+		}
+
+
+
 ?>
 

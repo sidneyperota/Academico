@@ -60,7 +60,6 @@
      </div>
 
 
-
       <footer class="mastfoot mt-auto">
         <div class="inner">
           <p>Caixa Fácil | <a href="https://www.caixafacil.com.br"> https://www.caixafacil.com.br </a> | Sidney Perota
@@ -78,7 +77,7 @@
   if ( $_SERVER['REQUEST_METHOD'] == 'POST') 
   { 
 
-    include "Banco.php";
+    include "banco.php";
     include "Funcoes.php";
     
     $conexao = conectar(); 
@@ -94,7 +93,7 @@
 
     if ($conexao-> query($sql)== true ) { 
       
-		echo "<script>";  
+		    echo "<script>";  
         echo "window.location=\"listaMovimento.php\";"; 
         echo "</script>"; 
     } else

@@ -4,6 +4,16 @@
 	include "banco.php";	
 	//include "Funcoes.php";
 
+
+	function listarTodosLancamentos() { 
+
+		$conexao = conectar();
+		$sql = "SELECT * FROM movimento_caixa";
+		$resultado = mysqli_query( $conexao, $sql );
+		return $resultado; 		
+	}
+
+
 	function resumoCaixa( $data ) { 
 
 		$conexao = conectar();
