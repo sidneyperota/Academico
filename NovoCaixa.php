@@ -73,7 +73,6 @@
 
 <?php
 
-
   if ( $_SERVER['REQUEST_METHOD'] == 'POST') 
   { 
 
@@ -87,6 +86,11 @@
     $iCodUsuario  = $_SESSION['id_usuario'];
     $dataCaixa    = dataSql( $_POST['dtCaixa'] );
     $_SESSION['dataCaixa'] = $dataCaixa; 
+
+    
+    echo $CodUsuario."/n";  
+    echo $dataCaixa."/n"; 
+    echo $_SESSION['dataCaixa']."/n"; 
 
     $sql = "insert into caixa ( data, status, usuario ) 
             values ( '$dataCaixa', 'C', $iCodUsuario )";
