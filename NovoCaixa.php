@@ -31,7 +31,7 @@
 
         <div class="card text-white bg-primary mb-5" style="max-width: 25rem;">
         
-        <div class="card-header"> Caixa Fácil Aplicativo Web Versão 1.0.001 </div>
+        <div class="card-header"> Caixa Fácil Aplicativo Web Versão 1.0.002 </div>
 
 
           <div class="card-body">
