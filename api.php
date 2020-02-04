@@ -15,9 +15,11 @@
     }  
 
 
-	//echo json_encode( $lancamentos);
+	echo json_encode( $lancamentos);
 
  	
+     /*
+
      if ( $_SERVER['REQUEST_METHOD'] == 'POST')  {
      	echo "Metodo POST "; 
      }
@@ -56,7 +58,7 @@
 
 
 
-     echo json_encode( $_REQUEST );
+     echo json_encode( $_REQUEST );*/
 
 
 
