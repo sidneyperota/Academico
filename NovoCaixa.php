@@ -84,8 +84,8 @@
 
     // Iniciar SESSAO 
     session_start();
-    $iCodUsuario = $_SESSION['id_usuario'];
-    $dataCaixa = dataSql( $_POST['dtCaixa'] );
+    $iCodUsuario  = $_SESSION['id_usuario'];
+    $dataCaixa    = dataSql( $_POST['dtCaixa'] );
     $_SESSION['dataCaixa'] = $dataCaixa; 
 
     $sql = "insert into caixa ( data, status, usuario ) 

@@ -6,19 +6,21 @@
 
 // Servidor Web  
 
- /*
-  $servidor ='localhost:3306';
-  $bdUsuario = '2342723_caixa';
-  $bdSenha ='Si232317';
-  $bdBanco ='2342723_caixa';
- */ 
+ 
+  $servidor ='localhost';
+  $bdUsuario = 'u355362813_usuario';
+  $bdSenha ='arrozal40';
+  $bdBanco ='u355362813_financeiro';
+ 
 
 
 
+  /*
   $bdServidor='localhost:3306';
   $bdUsuario= 'root';
   $bdSenha='si232317';
   $bdBanco='financeiro';
+  */
   
 
   $conexao = mysqli_connect( $bdServidor, $bdUsuario, $bdSenha, $bdBanco );
@@ -26,7 +28,7 @@
   
 
   if ( $conexao -> connect_error == true ) { 
-    echo 'falha na conexao: '.$conexao-> connect_error;   
+    echo '<h1>falha na conexao: </h1>'.$conexao-> connect_error;   
   } 
   
 

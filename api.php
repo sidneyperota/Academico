@@ -40,19 +40,19 @@
 
 
 
-     var_dump($_GET);
+     //var_dump($_GET);
 
-     var_dump($_POST);
-
-
-     print_r( $_SERVER );
+     //var_dump($_POST);
 
 
-     $url = explode('/', $_SERVER['PATH_INFO'] );
-     array_shift($url);
+     //print_r( $_SERVER );
 
 
-     var_dump( $url );
+     //$url = explode('/', $_SERVER['PATH_INFO'] );
+     //array_shift($url);
+
+
+     //var_dump( $url );
 
 
 
