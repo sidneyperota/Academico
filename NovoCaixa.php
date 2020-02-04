@@ -62,7 +62,7 @@
 
       <footer class="mastfoot mt-auto">
         <div class="inner">
-          <p>Caixa Fácil | <a href="https://www.caixafacil.com.br"> https://www.caixafacil.com.br </a> | Sidney Perota
+          <p>Caixa Fácil | <a href="https://www.meuappfinanceiro.com.br"> https://www.caixafacil.com.br </a> | Sidney Perota
         </div>
       </footer>
     </div>
@@ -98,7 +98,7 @@
         echo "</script>"; 
     } else
     {
-      echo "Falha ao gravar caixa.";                    
+      echo "<h1>Falha ao gravar caixa.</h1>";                    
     }
 
    mysqli_close( $conexao );

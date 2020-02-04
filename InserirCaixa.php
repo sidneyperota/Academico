@@ -88,6 +88,13 @@
     $dataCaixa = dataSql( $_POST['dtCaixa'] );
     $_SESSION['dataCaixa'] = $dataCaixa; 
 
+    
+    echo $dataCaixa; 
+    echo $iCodUsuario; 
+
+
+
+    /*
     $sql = "insert into caixa ( data, status, usuario ) 
             values ( '$dataCaixa', 'P', $iCodUsuario )";
 
@@ -101,7 +108,7 @@
       echo "Falha ao gravar caixa.";                    
     }
 
-   mysqli_close( $conexao );
+   mysqli_close( $conexao );*/
    
    // Atualizar página para atualizar saldo
    //echo "<meta HTTP-EQUIV='refresh' CONTENT='0'>";
