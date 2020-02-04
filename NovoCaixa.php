@@ -88,9 +88,9 @@
     $_SESSION['dataCaixa'] = $dataCaixa; 
 
     
-    echo $CodUsuario."/n";  
-    echo $dataCaixa."/n"; 
-    echo $_SESSION['dataCaixa']."/n"; 
+    echo $CodUsuario."\n";  
+    echo $dataCaixa."\n"; 
+    echo $_SESSION['dataCaixa']."\n"; 
 
     $sql = "insert into caixa ( data, status, usuario ) 
             values ( '$dataCaixa', 'C', $iCodUsuario )";
