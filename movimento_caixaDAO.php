@@ -18,7 +18,7 @@
 
 		$conexao = conectar();
 		$sql = "SELECT * FROM movimento_caixa where data = '$data' ";
-		$resultado = mysqli_query($conexao, $sql );
+		$resultado = mysqli_query( $conexao, $sql );
 		return $resultado; 		
 	}
 

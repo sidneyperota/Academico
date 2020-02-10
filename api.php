@@ -15,15 +15,12 @@
     }  
 
 
-	echo json_encode( $lancamentos);
+	if ( $_SERVER['REQUEST_METHOD'] == "GET" ) { 
+        echo json_encode( $lancamentos);
+    }
 
- 	
+
      /*
-
-     if ( $_SERVER['REQUEST_METHOD'] == 'POST')  {
-     	echo "Metodo POST "; 
-     }
-
      if ( $_SERVER['REQUEST_METHOD'] == 'GET') {
      	echo "Metodo GET "; 
      }
@@ -38,8 +35,7 @@
 
      if ( $_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
      	echo "Metodo Options!! - Caralho  \n"; 
-     }
-
+     }*/
 
 
      //var_dump($_GET);
@@ -49,17 +45,21 @@
 
      //print_r( $_SERVER );
 
+     if ( $_SERVER['REQUEST_METHOD'] == 'POST')  {
+        $url = explode('/', $_SERVER['PATH_INFO'] );
+        array_shift($url);
+        var_dump($url);
+     }
 
-     //$url = explode('/', $_SERVER['PATH_INFO'] );
-     //array_shift($url);
+
+     
 
 
      //var_dump( $url );
 
 
 
-     echo json_encode( $_REQUEST );*/
-
+//     echo json_encode( $_REQUEST );
 
 
 
