@@ -2,6 +2,7 @@
 
 
 	include 'movimento_caixaDAO.php'; 	
+    
 
 
 	// listar todos Lancamentos
@@ -19,6 +20,10 @@
         echo json_encode( $lancamentos);
     }
 
+
+    $caixa = new Caixa("2020-02-11","C"); 
+    
+    $caixa->data =  "2020-02-12";
 
      /*
      if ( $_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -61,16 +66,15 @@
         print_r( $obj_php );
 
 
+        
+
+
         //header("Access-Control-Allow-Origin: *");
         //header('Cache-Control: no-cache, must-revalidate'); 
         //header("Content-Type: text/plain; charset=UTF-8");
         //header("HTTP/1.1 200 OK");
 
-        $dados = file_get_contents("php://input");
-        echo $dados;
 
-
-            
 
 
 
