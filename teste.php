@@ -3,6 +3,8 @@
 	$caminho = $_SERVER['DOCUMENT_ROOT']; 
 	
 	include $caminho."\\"."controle\\MovimentoCaixa.php";
+	include $caminho."\\"."dao\\MovimentoCaixaDAO.php";
+
 
 
 /*
@@ -13,16 +15,16 @@
 
 */	
 	
-	 
 	$mov_caixa = new MovimentoCaixa; 
 
-	$teste = new Caixa("2020-02-13","L");
+	$mov_caixa->getCaixa()->setData("2020-02-13");
 
-	echo "Obtendo a data do ultimo Objeto instanciado: ". $teste->data; 
-
-
+	echo $mov_caixa->getCaixa()->getData();
 
 
-    
+
+
+	//echo "Obtendo a data do ultimo Objeto instanciado: ". $teste->data; 
+
 
 ?>

@@ -1,17 +1,35 @@
 <?php
 
+	
+	
 
     class Caixa { 
 
-    	public $data; 
-    	public $status; 
+    	private $data; 
+    	private $status; 
 
-    	function __construct($data, $status ) {  
-    		
-    		$this->data=$data; 
-    		echo "Data do Objeto: ". $data; 
+    	public function setData($data) { 
+    		$this->data = $data; 	
+    	}
+
+    	public function getData() { 
+    		return $this->data; 
+    	}
+
+    	public function setStatus($status) { 
+    		$this->status = $status;  
+    	}
+
+    	public function getStatus() { 
+			return $this->status;     		
+    	}
+
+
+    	function __construct() {  
     	}	
 
+
+    	
     }
 
 
