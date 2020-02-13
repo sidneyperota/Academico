@@ -1,5 +1,8 @@
 <?php
 
+  
+  include "Variaveis.php";
+
   function conectar() {
 
   // Servidor Web  
@@ -10,15 +13,13 @@
     $bdSenha ='arrozal40';
     $bdBanco ='u355362813_financeiro';
   } 
-  else
-  if ( $_SERVER['HTTP_HOST'] == Variaveis::$rota_desenv ) {   
+  elseif  ( $_SERVER['HTTP_HOST'] == Variaveis::$rota_desenv )    
   {  
     $bdServidor='localhost:3306';
     $bdUsuario= 'root';
     $bdSenha='si232317';
     $bdBanco='financeiro';
-  } else
-    echo "Não foi possível conectar";
+  } 
 
   $conexao = mysqli_connect( $bdServidor, $bdUsuario, $bdSenha, $bdBanco );
 
