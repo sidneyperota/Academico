@@ -8,11 +8,13 @@
     	private $data; 
     	private $status; 
 
-    	public function setData($data) { 
+		
+		/*
+		public function setData($data) { 
     		$this->data = $data; 	
     	}
 
-    	public function getData() { 
+		public function getData() { 
     		return $this->data; 
     	}
 
@@ -22,10 +24,10 @@
 
     	public function getStatus() { 
 			return $this->status;     		
-    	}
-
-
-    	function __construct() {  
+		}
+		*/
+		
+	  	function __construct() {  
     	}	
 
 

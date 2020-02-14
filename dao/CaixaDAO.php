@@ -8,7 +8,7 @@
 		class CaixaDAO implements IDao { 
 
 
-			public function inserir( $obj ) { 
+			public function gravar( $obj ) { 
 
 			} 
 			

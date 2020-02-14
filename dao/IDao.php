@@ -2,7 +2,7 @@
 
 	interface IDao { 
 
-		public function inserir( $obj ); 
+		public function gravar( $obj ); 
 		public function alterar( $obj );
 		public function excluir( $obj );
 		public function consultar( $obj ); 
