@@ -16,21 +16,18 @@
 	$movimentoCaixa->getCaixa()->setData("2019-12-01");
 	$movimentoCaixa->setConta("12232");
 	$movimentoCaixa->setOperacao("E");
-	$movimentoCaixa->setHistorico("Recebido valor Ilhota Almeida e Filho Ltda.");
-	$movimentoCaixa->setValor("150.00");
+	$movimentoCaixa->setHistorico("Recebido PAMPAS.");
+	$movimentoCaixa->setValor("155.00");
 	$movimentoCaixa->setUsuario("1"); 
-	$movimentoCaixa->setDoc("1234888");
-
+	$movimentoCaixa->setDoc("dsjdhs1212125");
 	$movimentoCaixaDAO->gravar($movimentoCaixa);
 
 	echo "Parabéns, gravado com Sucesso!";
 
-
+	echo "teste";
 
 	//$caminho = $_SERVER['DOCUMENT_ROOT']; 
-
 	//echo $_SERVER['HTTP_HOST']; 
-
 	//$obj_var = new Variaveis(); 
 	
 	

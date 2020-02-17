@@ -14,8 +14,10 @@
 
 		public function gravar( $obj ) {
 
-                $dataCaixa 	= $obj->getCaixa()->getData(); 
-                $conta 		= $obj->getConta(); 
+		
+				$dataCaixa 	= $obj->getCaixa()->getData(); 
+				
+				$conta 		= $obj->getConta(); 
                 $operacao 	= $obj->getOperacao(); 
                 $historico	= $obj->getHistorico(); 
                 $valor		= $obj->getValor(); 
@@ -25,7 +27,10 @@
                 $sql = "insert into movimento_caixa ( data, conta, operacao, historico, valor, usuario, doc ) 
                         values ( '$dataCaixa', '$conta','$operacao','$historico', $valor, $usuario, '$doc' )";
 
-                if ($this->conexao-> query($sql)== true ) { 
+				echo $sql; 					
+				
+				
+				if ($this->conexao-> query($sql)== true ) { 
                   echo "<h3> Dados inseridos com sucesso!</h3>";  
                 } else
                 {
@@ -52,7 +57,11 @@
 			return $obj_ret; 
 		} 
 
-
+		public function listarTodosLancamentos() { 
+			$sql = "SELECT * FROM movimento_caixa";
+			$resultado = mysqli_query( $this->conexao, $sql );
+			return $resultado; 		
+		}
 
 
 

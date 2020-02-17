@@ -25,9 +25,7 @@
    */ 
 
 
-    
-
-     /*
+    /*
      if ( $_SERVER['REQUEST_METHOD'] == 'GET') {
      	echo "Metodo GET "; 
      }
@@ -52,50 +50,48 @@
 
      //print_r( $_SERVER );
 
+     // Metodos POSTs
      if ( $_SERVER['REQUEST_METHOD'] == 'POST')  {
+        
+        // Obtem o metodo recuperado na variavel PATH_INFO
         $url = explode('/', $_SERVER['PATH_INFO'] );
         array_shift($url);
-        
         $metodo = $url[0];
-        echo "\n".$metodo; 
-
-        
 
         if ( $metodo == "lancamentocaixa" ) { 
 
-              $movimentoCaixaDAO = new MovimentoCaixaDAO(); 
+            $movimentoCaixaDAO = new MovimentoCaixaDAO(); 
+            $movimentoCaixa = new MovimentoCaixa(); 
 
-              $movimentoCaixa = new MovimentoCaixa(); 
-
-              
-              $json = file_get_contents('php://input');
-              $obj_php = json_decode($json); // $obj_php agora é exatamente o objeto/array enviado pelo servidor
-
-             // echo $obj_php[0]->"data"; 
-
-              
+            // Obtem o JSON passado pelo cliente pelo setEntity 
+            $json = file_get_contents('php://input');
+            $obj_php = json_decode($json); // $obj_php agora é exatamente o objeto/array enviado pelo servidor
+            
+            //print_r($obj_php); 
+            
+            $movimentoCaixa->setDoc( $obj_php-> {'doc'} ); 
+            $movimentoCaixa->getCaixa()->setData( $obj_php-> {'data'}); 
+            $movimentoCaixa->setConta( $obj_php-> {'conta'} );
+            $movimentoCaixa->setHistorico( $obj_php-> {'historico'} );
+            $movimentoCaixa->setOperacao( $obj_php-> {'operacao'});
+            $movimentoCaixa->setValor( $obj_php-> {'valor'}); 
+            $movimentoCaixa->setUsuario( $obj_php-> {'usuario'} ); 
+            $movimentoCaixaDAO->gravar( $movimentoCaixa ); 
+            echo "Registro gravado com sucesso!";
+            
+            /*
+            foreach ($obj_php as $lanc) {
+              $cont++; 
+              echo "\n".$cont." - ".$lanc;
+            }
+            */
               
               //$movimentoCaixa->getCaixa()->setData("2020-02-04"); 
-             // $movimentoCaixa->setConta-> "121212"; 
+              // $movimentoCaixa->setConta-> "121212"; 
 
-
-              
-              
-              
              // $movimentoCaixaDAO->gravar()
-          
-          
-          
-              echo "\nProcessado com Sucesso!\n"; 
-
 
         }
-
-
-        
-        
-        echo json_encode( $_REQUEST );
-        var_dump( $_POST );
 
         //var_dump( $_SERVER ); 
 
@@ -105,24 +101,36 @@
         //header("Content-Type: text/plain; charset=UTF-8");
         //header("HTTP/1.1 200 OK");
 
+     } 
 
+     // Metodos GETs
+     if ( $_SERVER['REQUEST_METHOD'] == 'GET') 
+     {
 
+        $url = explode('/', $_SERVER['PATH_INFO'] );
+        array_shift($url);
+        $metodo = $url[0];
+      
+        if ( $metodo == "consultamovimento" ) { 
+        
+          $movimentoCaixaDAO = new MovimentoCaixaDAO(); 
+          $resultado = $movimentoCaixaDAO->listarTodosLancamentos(); 
+          $lancamento = array();
 
+          while ($lancamento = mysqli_fetch_assoc($resultado) ) 
+          {
+            $lancamentos[] = $lancamento;
+          }  
+        
+          echo json_encode( $lancamentos);
+
+        }  
 
      }
 
-
-     
-
-
      //var_dump( $url );
 
-
-
-//     echo json_encode( $_REQUEST );
-
-
-
+     //echo json_encode( $_REQUEST );
 
 
 ?>     
