@@ -34,7 +34,7 @@
                   echo "<h3> Dados inseridos com sucesso!</h3>";  
                 } else
                 {
-                  echo "<h3> falha envio dos dados </h3>";                    
+                  echo "falha ao tentar gravar os dados no servidor";                    
                 }
 
                mysqli_close( $this->conexao );
@@ -62,9 +62,6 @@
 			$resultado = mysqli_query( $this->conexao, $sql );
 			return $resultado; 		
 		}
-
-
-
 
 	}
 
