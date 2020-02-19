@@ -107,7 +107,6 @@
      if ( $_SERVER['REQUEST_METHOD'] == 'GET') 
      {
 
-        echo "Iniciado";
       
         $url = explode('/', $_SERVER['PATH_INFO'] );
         array_shift($url);
@@ -127,15 +126,16 @@
               $lancamentos[] = $lancamento;
             }  
           
-            $lancamentos[] = "Registros nao encontrados"; 
-            echo json_encode( $lancamentos);
+            if ( count( $lancamentos )== 0 ) { 
+              $lancamentos[] = "Nenhum lançamento retornado.";
+            }  
+            else 
+            {
+              echo json_encode( $lancamentos);
+            }  
          } catch ( Exception $e ) { 
           echo "Exceção capturada: ", $e->getMessage(), "\n"; 
          }
-
-
-
-
 
         }  
 
