@@ -2,9 +2,14 @@
 	
 	
 	$caminho = $_SERVER['DOCUMENT_ROOT']; 
+	
+	echo $caminho; 
+	
 	//include $caminho."\\"."Global.php";
 	//include "Global.php";
 
+	
+	/*
 	include $caminho."\\dao\\MovimentoCaixaDAO.php";
 	include $caminho."\\controle\\MovimentoCaixa.php";
 
@@ -25,19 +30,12 @@
 	echo "Parabéns, gravado com Sucesso!";
 
 	echo "teste";
+	*/
 
 	//$caminho = $_SERVER['DOCUMENT_ROOT']; 
 	//echo $_SERVER['HTTP_HOST']; 
 	//$obj_var = new Variaveis(); 
 	
-	
-
-
-
-
-
-
-
 	
 
 
