@@ -1,11 +1,9 @@
 <?php 
 
- 
-  include "dao/MovimentoCaixaDAO.php";   
-  include "controle/MovimentoCaixa.php";
+   include "dao/MovimentoCaixaDAO.php";   
+   include "controle/MovimentoCaixa.php";
     
- 
-     // Metodos POSTs
+      // Metodos Post
      if ( $_SERVER['REQUEST_METHOD'] == 'POST')  {
         
         // Obtem o metodo recuperado na variavel PATH_INFO
@@ -55,7 +53,7 @@
           
             if ( count( $lancamentos ) == 0 ) { 
               echo "Nenhum lancamento retornado";
-              $lancamentos[] = "Nenhum lançamento retornado 2.";
+              $lancamentos[] = "Nenhum lançamento retornado";
             }  
             else 
             {

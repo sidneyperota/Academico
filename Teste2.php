@@ -5,7 +5,12 @@
 
 
 	echo "teste carregado com sucesso!";
-	  
+
+
+	$movimentoCaixaDAO = new MovimentoCaixaDAO(); 
+
+
+	echo "Objeto instanciado!"; 
 
 	
 	
