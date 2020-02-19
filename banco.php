@@ -9,9 +9,9 @@
 
   if ( $_SERVER['HTTP_HOST'] == Variaveis::$rota_producao ) { 
     $servidor ='localhost';
-    $bdUsuario = 'u355362813_usuarioXXXX';
+    $bdUsuario = 'u355362813_usuario';
     $bdSenha ='arrozal40';
-    $bdBanco ='u355362813_financeiroXXXX';
+    $bdBanco ='u355362813_financeiro';
   } 
   elseif  ( $_SERVER['HTTP_HOST'] == Variaveis::$rota_desenv )    
   {  
