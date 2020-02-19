@@ -2,7 +2,7 @@
 
 
 	include "IDao.php";	
-	include "banco.php";
+	include "../banco.php";
 
 	class MovimentoCaixaDAO implements IDao { 
 
@@ -34,7 +34,7 @@
                   echo "<h3> Dados inseridos com sucesso!</h3>";  
                 } else
                 {
-                  echo "falha ao tentar gravar os dados no servidor";                    
+                  echo "Falha ao tentar gravar os dados no servidor";                    
                 }
 
                mysqli_close( $this->conexao );
