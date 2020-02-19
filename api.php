@@ -2,8 +2,8 @@
 
 
   
-  include "dao/MovimentoCaixaDAO.php";   
-  include "controle/MovimentoCaixa.php";
+  include "dao\\MovimentoCaixaDAO.php";   
+  include "controle\\MovimentoCaixa.php";
     
   // listar todos Lancamentos
   
@@ -111,7 +111,6 @@
         $url = explode('/', $_SERVER['PATH_INFO'] );
         array_shift($url);
         $metodo = $url[0];
-        echo $metodo; 
       
         if ( $metodo == "consultamovimento" ) { 
  
