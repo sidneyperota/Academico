@@ -1,7 +1,7 @@
 <?php 
 
 
-  //include 'movimento_caixaDAO.php'; 	
+  
   include "dao/MovimentoCaixaDAO.php";   
   include "controle/MovimentoCaixa.php";
     
@@ -107,6 +107,8 @@
      if ( $_SERVER['REQUEST_METHOD'] == 'GET') 
      {
 
+        echo "Iniciado";
+      
         $url = explode('/', $_SERVER['PATH_INFO'] );
         array_shift($url);
         $metodo = $url[0];

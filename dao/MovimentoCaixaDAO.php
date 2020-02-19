@@ -2,7 +2,7 @@
 
 
 	include "IDao.php";	
-	include "../banco.php";
+	include "banco.php";
 
 	class MovimentoCaixaDAO implements IDao { 
 
@@ -50,11 +50,11 @@
 		}
 
 		public function consultar( $obj ) {
-			return $dados; 
+			return null; 
 		} 
 
 		public function pesquisar( $obj ) {
-			return $obj_ret; 
+			return null; 
 		} 
 
 		public function listarTodosLancamentos() { 
