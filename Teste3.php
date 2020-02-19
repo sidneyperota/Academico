@@ -18,13 +18,9 @@
     }
 
 
+    $caminho = $_SERVER['HTTP_HOST']; 
 
-
-
-
-
-
-
+    echo $caminho; 
 
 
 
