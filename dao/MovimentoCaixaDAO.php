@@ -1,6 +1,5 @@
 <?php
 
-
 	include "IDao.php";	
 	include "banco.php";
 

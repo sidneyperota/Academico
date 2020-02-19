@@ -2,8 +2,8 @@
 
 
   
-  include "dao\MovimentoCaixaDAO.php";   
-  include "controle\MovimentoCaixa.php";
+  include "dao/MovimentoCaixaDAO.php";   
+  include "controle/MovimentoCaixa.php";
     
   // listar todos Lancamentos
   
