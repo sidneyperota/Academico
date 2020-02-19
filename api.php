@@ -115,17 +115,27 @@
       
         if ( $metodo == "consultamovimento" ) { 
         
-          $movimentoCaixaDAO = new MovimentoCaixaDAO(); 
-          $resultado = $movimentoCaixaDAO->listarTodosLancamentos(); 
-          $lancamento = array();
+          
+         
+          try {
+            $movimentoCaixaDAO = new MovimentoCaixaDAO(); 
+            $resultado = $movimentoCaixaDAO->listarTodosLancamentos(); 
+            $lancamento = array();
 
-          while ($lancamento = mysqli_fetch_assoc($resultado) ) 
-          {
-            $lancamentos[] = $lancamento;
-          }  
-        
-          $lancamentos[] = "Registros nao encontrados"; 
-          echo json_encode( $lancamentos);
+            while ($lancamento = mysqli_fetch_assoc($resultado) ) 
+            {
+              $lancamentos[] = $lancamento;
+            }  
+          
+            $lancamentos[] = "Registros nao encontrados"; 
+            echo json_encode( $lancamentos);
+         } catch ( Exception $e ) { 
+          echo "Exceção capturada: ", $e->getMessage(), "\n"; 
+         }
+
+
+
+
 
         }  
 
