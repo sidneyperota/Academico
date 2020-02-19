@@ -10,7 +10,7 @@
   if ( $_SERVER['HTTP_HOST'] == Variaveis::$rota_producao ) { 
     $servidor ='localhost';
     $bdUsuario = 'u355362813_usuario';
-    $bdSenha ='arrozal40';
+    $bdSenha ='arrozal401';
     $bdBanco ='u355362813_financeiro';
   } 
   elseif  ( $_SERVER['HTTP_HOST'] == Variaveis::$rota_desenv )    
