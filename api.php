@@ -111,11 +111,10 @@
         $url = explode('/', $_SERVER['PATH_INFO'] );
         array_shift($url);
         $metodo = $url[0];
+        echo $metodo; 
       
         if ( $metodo == "consultamovimento" ) { 
-        
-          
-         
+ 
           try {
             $movimentoCaixaDAO = new MovimentoCaixaDAO(); 
             $resultado = $movimentoCaixaDAO->listarTodosLancamentos(); 
@@ -127,10 +126,12 @@
             }  
           
             if ( count( $lancamentos )== 0 ) { 
+              echo "Nenhum lancamento retornado";
               $lancamentos[] = "Nenhum lançamento retornado.";
             }  
             else 
             {
+              echo "retornado ", count( $lancamentos ); 
               echo json_encode( $lancamentos);
             }  
          } catch ( Exception $e ) { 
