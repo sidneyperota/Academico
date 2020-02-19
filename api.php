@@ -122,6 +122,8 @@
             $lancamentos[] = $lancamento;
           }  
         
+          $lancamentos[] = "Registros nao encontrados"; 
+          
           echo json_encode( $lancamentos);
 
         }  
