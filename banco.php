@@ -12,6 +12,7 @@
     $bdUsuario = 'u355362813_usuario';
     $bdSenha ='arrozal40';
     $bdBanco ='u355362813_financeiro';
+    echo "Servidor Web!";
   } 
   elseif  ( $_SERVER['HTTP_HOST'] == Variaveis::$rota_desenv )    
   {  
@@ -19,7 +20,12 @@
     $bdUsuario= 'root';
     $bdSenha='si232317';
     $bdBanco='financeiro';
-  } 
+    echo "Servidor Local!";
+  } else
+  {
+
+    echo "Servidor não encontrado!";
+  }
 
   $conexao = mysqli_connect( $bdServidor, $bdUsuario, $bdSenha, $bdBanco );
 
