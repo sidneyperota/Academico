@@ -33,6 +33,4 @@
   }
 
 
-  $con = conectar(); 
-
 ?>
