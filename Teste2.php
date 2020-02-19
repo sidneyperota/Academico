@@ -1,8 +1,7 @@
 <?php 
 	
 	
-	$caminho = $_SERVER['DOCUMENT_ROOT']; 
-	
+	$caminho = $_SERVER['HTTP_HOST']; 
 	echo $caminho; 
 	
 	//include $caminho."\\"."Global.php";
