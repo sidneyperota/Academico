@@ -54,12 +54,10 @@
             }  
           
             if ( count( $lancamentos ) == 0 ) { 
-              echo "Nenhum lancamento retornado";
               $lancamentos[] = "Nenhum lançamento retornado";
             }  
             else 
             {
-              echo "retornado ", count( $lancamentos ); 
               echo json_encode( $lancamentos);
             }  
          } catch ( Exception $e ) { 
