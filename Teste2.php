@@ -1,6 +1,6 @@
 <?php 
 	
-	include "dao/MovimentoCaixaDAO.php";   
+	include "dao2/MovimentoCaixaDAO.php";   
 	include "controle/MovimentoCaixa.php";
 
 
