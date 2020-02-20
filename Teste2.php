@@ -15,7 +15,7 @@
 	}
 
 	$sql = "SELECT * FROM movimento_caixa";
-	$resultado = mysqli_query( $this->conexao, $sql );
+	$resultado = mysqli_query( $conexao, $sql );
 
 	echo "consulta realizada2";
 	
