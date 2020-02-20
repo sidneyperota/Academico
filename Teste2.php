@@ -6,7 +6,6 @@
 	$bdBanco ='u355362813_financeiro';
 	
 	
-	
 	try
 
 	{
@@ -24,7 +23,7 @@
 		$sql = "SELECT * FROM movimento_caixa";
 		$resultado = mysqli_query( $conexao, $sql );
 
-		echo "consulta realizada2";
+		echo "consulta realizada - Versao 1.0";
 	
 
 		$lancamento = array();
