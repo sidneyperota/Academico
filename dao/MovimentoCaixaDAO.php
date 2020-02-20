@@ -5,7 +5,7 @@
 
 	class MovimentoCaixaDAO implements IDao { 
 
-		private $conexao; 
+		public $conexao = null; 
 
 		function __construct() {  
     		$this->conexao = conectar();
