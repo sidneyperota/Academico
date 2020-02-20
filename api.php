@@ -3,7 +3,7 @@
    include "dao/MovimentoCaixaDAO.php";   
    include "controle/MovimentoCaixa.php";
 
-   echo "Versao 1.0";   
+   echo "Versao 1.1";   
 
 
     

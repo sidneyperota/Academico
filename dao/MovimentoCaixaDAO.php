@@ -3,9 +3,9 @@
 	include "IDao.php";	
 	include "banco.php";
 
-	class MovimentoCaixaDAO implements IDao { 
+	$conexao = null; 
 
-		public $conexao = null; 
+	class MovimentoCaixaDAO implements IDao { 
 
 		function __construct() {  
     		$this->conexao = conectar();
