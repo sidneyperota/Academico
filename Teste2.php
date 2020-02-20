@@ -5,7 +5,6 @@
     $bdSenha ='arrozal40';
 	$bdBanco ='u355362813_financeiro';
 	
-	
 	try
 
 	{
@@ -23,7 +22,7 @@
 		$sql = "SELECT * FROM movimento_caixa";
 		$resultado = mysqli_query( $conexao, $sql );
 
-		echo "consulta realizada - Versao 1.0";
+		echo "consulta realizada - Versao 1.1";
 	
 
 		$lancamento = array();
@@ -35,6 +34,7 @@
 
 		if ( count($lancamentos) > 0 ) { 
 			echo "Arquivos encontrados"; 
+			var_dump($lancamentos);
 		} else
 		{ 
 			echo "Não foi retornado registros."; 
