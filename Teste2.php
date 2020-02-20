@@ -12,13 +12,12 @@
 	}  else
 	{
 		echo "conectado com sucesso!";
-
 	}
 
 	$sql = "SELECT * FROM movimento_caixa";
-	//$resultado = mysqli_query( $this->conexao, $sql );
+	$resultado = mysqli_query( $this->conexao, $sql );
 
-	echo "consulta realizada";
+	echo "consulta realizada2";
 	
 /*
 	$lancamento = array();
