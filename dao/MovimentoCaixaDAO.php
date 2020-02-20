@@ -3,9 +3,10 @@
 	include "IDao.php";	
 	include "banco.php";
 
-	$conexao = null; 
 
 	class MovimentoCaixaDAO implements IDao { 
+		
+		private $conexao = null; 
 
 		function __construct() {  
     		$this->conexao = conectar();
