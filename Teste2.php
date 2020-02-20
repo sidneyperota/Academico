@@ -9,6 +9,24 @@
 
 	{
 	
+		if ( $_SERVER['HTTP_HOST'] == "meuappfinanceiro.com.br" ) { 
+			
+			echo "caminho do banco correto!";
+			
+		} else
+		{
+			echo $_SERVER['HTTP_HOST'];
+
+		}	
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		echo "Processado com Sucesso!"; 		
 	
 
