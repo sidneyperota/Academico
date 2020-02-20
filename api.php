@@ -31,6 +31,8 @@
             echo "Registro gravado com sucesso!";
      } 
 
+    }
+
      // Metodos GETs
      if ( $_SERVER['REQUEST_METHOD'] == 'GET') 
      {
@@ -69,18 +71,3 @@
      }
 
 ?>     
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
-

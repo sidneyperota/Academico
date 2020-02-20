@@ -19,7 +19,7 @@
 
 	echo "consulta realizada2";
 	
-/*
+
 	$lancamento = array();
 
 	while ($lancamento = mysqli_fetch_assoc($resultado) ) 
@@ -34,6 +34,6 @@
 		echo "Não foi retornado registros."; 
 
 	}
-*/
+
 
 ?>
