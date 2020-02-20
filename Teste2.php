@@ -5,35 +5,47 @@
     $bdSenha ='arrozal40';
 	$bdBanco ='u355362813_financeiro';
 	
-	$conexao = mysqli_connect( $bdServidor, $bdUsuario, $bdSenha, $bdBanco );
+	
+	
+	try
 
-	if ( $conexao -> connect_error == true ) { 
-		echo 'falha na conexao:'.$conexao-> connect_error;   
-	}  else
 	{
-		echo "conectado com sucesso!";
-	}
+	
+	
+		$conexao = mysqli_connect( $bdServidor, $bdUsuario, $bdSenha, $bdBanco );
 
-	$sql = "SELECT * FROM movimento_caixa";
-	$resultado = mysqli_query( $conexao, $sql );
+		if ( $conexao -> connect_error == true ) { 
+			echo 'falha na conexao:'.$conexao-> connect_error;   
+		}  else
+		{
+			echo "conectado com sucesso!";
+		}
 
-	echo "consulta realizada2";
+		$sql = "SELECT * FROM movimento_caixa";
+		$resultado = mysqli_query( $conexao, $sql );
+
+		echo "consulta realizada2";
 	
 
-	$lancamento = array();
+		$lancamento = array();
 
-	while ($lancamento = mysqli_fetch_assoc($resultado) ) 
-	{
-		$lancamentos[] = $lancamento;
-	}  
+		while ($lancamento = mysqli_fetch_assoc($resultado) ) 
+		{
+			$lancamentos[] = $lancamento;
+		}  
 
-	if ( count($lancamentos) > 0 ) { 
-	print_r( $lancamentos );
-	} else
-	{ 
-		echo "Não foi retornado registros."; 
+		if ( count($lancamentos) > 0 ) { 
+			echo "Arquivos encontrados"; 
+		} else
+		{ 
+			echo "Não foi retornado registros."; 
+		}
 
 	}
+
+	catch ( Exception $e ) { 
+		echo "Exceção capturada: ", $e->getMessage(), "\n"; 
+   	}
 
 
 ?>
