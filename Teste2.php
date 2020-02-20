@@ -13,9 +13,17 @@
 	echo "Objeto instanciado!"; 
 
 	
+	$resultado = $movimentoCaixaDAO->listarTodosLancamentos(); 
 	
-	
+	$lancamento = array();
 
+	while ($lancamento = mysqli_fetch_assoc($resultado) ) 
+	{
+		$lancamentos[] = $lancamento;
+	}  
+
+
+	print_r( $lancamentos );
 
 
 ?>
