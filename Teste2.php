@@ -4,13 +4,10 @@
 	include "controle/MovimentoCaixa.php";
 
 
-	echo "teste carregado com sucesso!";
-
-
 	$movimentoCaixaDAO = new MovimentoCaixaDAO(); 
 
 
-	echo "Objeto instanciado!"; 
+	
 
 	
 	$resultado = $movimentoCaixaDAO->listarTodosLancamentos(); 
@@ -22,8 +19,13 @@
 		$lancamentos[] = $lancamento;
 	}  
 
-
+	if ( count($lancamentos) > 0 ) { 
 	print_r( $lancamentos );
+	} else
+	{ 
+		echo "Não foi retornado registros."; 
+
+	}
 
 
 ?>
