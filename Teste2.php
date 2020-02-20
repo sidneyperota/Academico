@@ -1,17 +1,23 @@
 <?php 
 	
-	include "dao2/MovimentoCaixaDAO.php";   
-	include "controle/MovimentoCaixa.php";
+	$servidor ='localhost';
+    $bdUsuario = 'u355362813_usuario';
+    $bdSenha ='arrozal40';
+	$bdBanco ='u355362813_financeiro';
+	
+	$conexao = mysqli_connect( $bdServidor, $bdUsuario, $bdSenha, $bdBanco );
 
+	if ( $conexao -> connect_error == true ) { 
+		echo 'falha na conexao:'.$conexao-> connect_error;   
+	}  else
+	{
+		echo "conectado com sucesso!";
 
-	$movimentoCaixaDAO = new MovimentoCaixaDAO(); 
+	}
 
 
 	
-
-	
-	$resultado = $movimentoCaixaDAO->listarTodosLancamentos(); 
-	
+/*
 	$lancamento = array();
 
 	while ($lancamento = mysqli_fetch_assoc($resultado) ) 
@@ -26,6 +32,6 @@
 		echo "Não foi retornado registros."; 
 
 	}
-
+*/
 
 ?>
