@@ -9,7 +9,7 @@
 
 	{
 	
-		if ( $_SERVER['HTTP_HOST'] == "meuappfinanceiro.com.br" ) { 
+		if ( $_SERVER['HTTP_HOST'] == "www.meuappfinanceiro.com.br" ) { 
 			
 			echo "caminho do banco correto!";
 			
