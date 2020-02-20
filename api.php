@@ -3,10 +3,6 @@
    include "dao/MovimentoCaixaDAO.php";   
    include "controle/MovimentoCaixa.php";
 
-   echo "Versao 1.1";   
-
-
-    
       // Metodos Post
      if ( $_SERVER['REQUEST_METHOD'] == 'POST')  {
         
